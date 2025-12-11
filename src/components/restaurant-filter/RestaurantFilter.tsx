@@ -15,7 +15,7 @@ const RestaurantFilter: React.FC<RestaurantFiltersProps> = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let query = "?";
+    let query = "";
 
     if (valueFilter) {
       query += `${columnFilter}_${criteriaFilter}=${valueFilter}&`;

@@ -1,19 +1,24 @@
 import React, { useState } from "react";
-import { Paginator, PaginatorPageChangeEvent } from "primereact/paginator";
+import { Paginator } from "primereact/paginator";
 
 interface RestaurantPaginatorProps {
   totalRestaurants: number;
+  setPaginationFilter: (value: string) => void;
 }
 
 export default function RestaurantPaginator({
   totalRestaurants,
+  setPaginationFilter,
 }: RestaurantPaginatorProps) {
   const [first, setFirst] = useState<number>(0);
   const [rows, setRows] = useState<number>(10);
 
-  const onPageChange = (event: PaginatorPageChangeEvent) => {
+  const onPageChange = (event: any) => {
     setFirst(event.first);
     setRows(event.rows);
+    const page = event.first / event.rows + 1;
+
+    setPaginationFilter(`_page=${page}&_limit=${event.rows}`);
   };
 
   return (
@@ -22,7 +27,7 @@ export default function RestaurantPaginator({
         first={first}
         rows={rows}
         totalRecords={totalRestaurants}
-        // rowsPerPageOptions={[10, 20, 30]}
+        rowsPerPageOptions={[5, 10]}
         onPageChange={onPageChange}
       />
     </div>
