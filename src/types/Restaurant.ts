@@ -1,5 +1,5 @@
 export interface Restaurant {
-  id: number;
+  id: string;
   name: string;
   address: string;
   postcode: string;
@@ -10,4 +10,12 @@ export interface Restaurant {
 export interface RestaurantResponse {
   restaurants: Restaurant[];
   totalRestaurants: number;
+}
+
+export interface RestaurantRequest {
+  name: string;
+  address: string;
+  postcode: string;
+  rating: number;
+  typeOfFood: string;
 }

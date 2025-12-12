@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Restaurant } from "../../types/Restaurant";
 import { Table } from "react-bootstrap";
+import RestaurantActions from "../restaurant-actions/RestaurantActions";
 
 interface RestaurantTableProps {
   restaurants: Restaurant[];
@@ -18,6 +19,7 @@ const RestaurantTable: React.FC<RestaurantTableProps> = ({
           <th>Postcode</th>
           <th>Rating</th>
           <th>Type of food</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -28,6 +30,9 @@ const RestaurantTable: React.FC<RestaurantTableProps> = ({
             <td> {restaurant.postcode}</td>
             <td> {restaurant.rating}</td>
             <td> {restaurant.typeOfFood}</td>
+            <td>
+              <RestaurantActions restaurant={restaurant} />
+            </td>
           </tr>
         ))}
       </tbody>

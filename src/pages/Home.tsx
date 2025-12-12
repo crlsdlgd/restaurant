@@ -4,6 +4,7 @@ import { RestaurantService } from "../services/RestaurantService";
 import RestaurantFilter from "../components/restaurant-filter/RestaurantFilter";
 import RestaurantTable from "../components/restaurant-table/RestaurantTable";
 import RestaurantPaginator from "../components/restaurant-paginator/RestaurantPaginator";
+import AddRestaurant from "../components/add-restaurant/AddRestaurant";
 import { PrimeReactProvider } from "primereact/api";
 
 const Home: React.FC = () => {
@@ -30,11 +31,12 @@ const Home: React.FC = () => {
   return (
     <div>
       <h1>Restaurants</h1>
-      <RestaurantFilter setSearchFilters={setSearchFilters} />
-      {restaurantsResponse.restaurants && (
-        <RestaurantTable restaurants={restaurantsResponse.restaurants} />
-      )}
       <PrimeReactProvider>
+        <RestaurantFilter setSearchFilters={setSearchFilters} />
+        <AddRestaurant />
+        {restaurantsResponse.restaurants && (
+          <RestaurantTable restaurants={restaurantsResponse.restaurants} />
+        )}
         <RestaurantPaginator
           totalRestaurants={restaurantsResponse.totalRestaurants}
           setPaginationFilter={setPaginationFilter}
