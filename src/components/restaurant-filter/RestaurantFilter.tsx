@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./RestaurantFilter.css";
 
 interface RestaurantFiltersProps {
   setSearchFilters: (filters: string) => void;
@@ -33,7 +34,7 @@ const RestaurantFilter: React.FC<RestaurantFiltersProps> = ({
   };
 
   return (
-    <div className="filter-conatiner">
+    <div className="filter-container">
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="filter-wrapper">
           <div className="filter-input">

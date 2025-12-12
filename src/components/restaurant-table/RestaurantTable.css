@@ -1,0 +1,17 @@
+.restaurant-table-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.restaurant-table {
+  width: 100%;
+}
+
+.restaurant-table th {
+  background-color: #f5f5f5;
+}
+
+.restaurant-table td {
+  padding: 10px;
+}

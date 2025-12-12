@@ -1,6 +1,7 @@
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import type { Restaurant } from "../../types/Restaurant";
+import "./UpdateRestaurantModal.css";
 
 interface UpdateRestaurantModalProps {
   updateRestaurant: Restaurant;
@@ -20,13 +21,13 @@ const UpdateRestaurantModal: React.FC<UpdateRestaurantModalProps> = ({
   const footerContent = (
     <div>
       <Button
-        label="No"
+        label="Cancel"
         icon="pi pi-times"
         onClick={() => setShowUpdateRestaurantModal(false)}
         className="p-button-text"
       />
       <Button
-        label="Yes"
+        label="Update"
         icon="pi pi-check"
         onClick={() => setUpdated(true)}
         autoFocus
@@ -38,7 +39,7 @@ const UpdateRestaurantModal: React.FC<UpdateRestaurantModalProps> = ({
   return (
     <div>
       <Dialog
-        header="Header"
+        header="Update Restaurant"
         visible={showUpdateRestaurantModal}
         footer={footerContent}
         onHide={() => {

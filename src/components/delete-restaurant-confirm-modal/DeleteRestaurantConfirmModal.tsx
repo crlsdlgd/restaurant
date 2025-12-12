@@ -14,28 +14,33 @@ const DeleteRestaurantConfirmModal: React.FC<
   showDeleteRestaurantConfirmModal,
   setShowDeleteRestaurantConfirmModal,
 }: DeleteRestaurantConfirmModalProps) => {
+  const footerContent = (
+    <div>
+      <Button
+        label="Cancel"
+        icon="pi pi-times"
+        onClick={() => setShowDeleteRestaurantConfirmModal(false)}
+        className="p-button-text"
+      />
+      <Button
+        label="Delete"
+        icon="pi pi-trash"
+        onClick={() => setDeleted(true)}
+        autoFocus
+        type="submit"
+        severity="danger"
+      />
+    </div>
+  );
   return (
     <div>
       <Dialog
         visible={showDeleteRestaurantConfirmModal}
         onHide={() => setShowDeleteRestaurantConfirmModal(false)}
+        header="Delete Restaurant"
+        footer={footerContent}
       >
         <p>Are you sure you want to delete this restaurant?</p>
-        <div>
-          <Button
-            label="No"
-            icon="pi pi-times"
-            onClick={() => setShowDeleteRestaurantConfirmModal(false)}
-            className="p-button-text"
-          />
-          <Button
-            label="Yes"
-            icon="pi pi-check"
-            onClick={() => setDeleted(true)}
-            autoFocus
-            type="submit"
-          />
-        </div>
       </Dialog>
     </div>
   );

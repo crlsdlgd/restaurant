@@ -3,6 +3,8 @@ import type { Restaurant } from "../../types/Restaurant";
 import { Table } from "react-bootstrap";
 import RestaurantActions from "../restaurant-actions/RestaurantActions";
 
+import "./RestaurantTable.css";
+
 interface RestaurantTableProps {
   restaurants: Restaurant[];
 }
@@ -11,7 +13,8 @@ const RestaurantTable: React.FC<RestaurantTableProps> = ({
   restaurants,
 }: RestaurantTableProps) => {
   return (
-    <Table>
+    <div className="restaurant-table-container">
+      <Table className="restaurant-table" responsive>
       <thead>
         <tr>
           <th>Name</th>
@@ -36,7 +39,8 @@ const RestaurantTable: React.FC<RestaurantTableProps> = ({
           </tr>
         ))}
       </tbody>
-    </Table>
+      </Table>
+    </div>
   );
 };
 

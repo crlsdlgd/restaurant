@@ -79,16 +79,16 @@ const RestaurantActions: React.FC<RestaurantActionsProps> = ({
 
   return (
     <>
-      <div className="actions-container">
+      <div className="actions-container flex gap-2">
         <Button
-          label="Update"
           className="p-button-warning"
           onClick={handleUpdate}
+          icon="pi pi-pencil"
         />
         <Button
-          label="Delete"
           className="p-button-danger"
           onClick={handleDelete}
+          icon="pi pi-trash"
         />
       </div>
 

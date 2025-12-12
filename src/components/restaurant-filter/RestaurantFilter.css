@@ -1,0 +1,146 @@
+/* Estilos del filtro de restaurantes */
+
+:root {
+  --rf-bg: #ffffff;
+  --rf-border: #e5e7eb;
+  /* gray-200 */
+  --rf-border-strong: #d1d5db;
+  /* gray-300 */
+  --rf-text: #111827;
+  /* gray-900 */
+  --rf-text-muted: #6b7280;
+  /* gray-500 */
+  --rf-primary: #2563eb;
+  /* blue-600 */
+  --rf-primary-hover: #1d4ed8;
+  /* blue-700 */
+  --rf-danger: #ef4444;
+  /* red-500 */
+  --rf-danger-hover: #dc2626;
+  /* red-600 */
+  --rf-focus: #93c5fd;
+  /* blue-300 */
+  --rf-ring: rgba(37, 99, 235, 0.25);
+}
+
+.filter-container {
+  background: var(--rf-bg);
+  border: 1px solid var(--rf-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  color: var(--rf-text);
+}
+
+.filter-container form {
+  display: grid;
+  gap: 16px;
+}
+
+/* Filas de controles */
+.filter-wrapper {
+  display: grid;
+  gap: 12px;
+}
+
+/* Item de control */
+.filter-input {
+  display: grid;
+  gap: 6px;
+}
+
+.filter-input label {
+  font-size: 0.875rem;
+  color: var(--rf-text-muted);
+}
+
+.filter-input select,
+.filter-input input[type="text"] {
+  width: 100%;
+  border: 1px solid var(--rf-border-strong);
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: var(--rf-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-input select:focus,
+.filter-input input[type="text"]:focus {
+  outline: none;
+  border-color: var(--rf-primary);
+  box-shadow: 0 0 0 4px var(--rf-ring);
+}
+
+/* Botones */
+.reset-filter-form-button,
+.submit-filter-form-button {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reset-filter-form-button {
+  background: #fff;
+  color: var(--rf-danger);
+  border-color: var(--rf-danger);
+}
+
+.reset-filter-form-button:hover {
+  background: var(--rf-danger);
+  color: #fff;
+}
+
+.submit-filter-form-button {
+  background: var(--rf-primary);
+  color: #fff;
+}
+
+.submit-filter-form-button:hover {
+  background: var(--rf-primary-hover);
+}
+
+/* Disposición de la fila de acciones */
+.filter-wrapper:last-of-type {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* Responsive */
+/* Mobile por defecto: una columna */
+
+/* >= 640px (sm) */
+@media (min-width: 640px) {
+  .filter-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Fila de acciones se mantiene a la derecha */
+  .filter-wrapper:last-of-type {
+    grid-template-columns: none;
+  }
+}
+
+/* >= 1024px (lg) */
+@media (min-width: 1024px) {
+  .filter-container {
+    padding: 20px;
+  }
+
+  .filter-wrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: end;
+  }
+
+  /* Primera fila: 3 columnas, Segunda fila: 2 columnas, Botones al final */
+  form>.filter-wrapper:nth-of-type(2) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

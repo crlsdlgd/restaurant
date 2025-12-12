@@ -1,0 +1,56 @@
+/* Header y layout del diálogo */
+.p-dialog .p-dialog-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.p-dialog .p-dialog-content {
+  padding: 16px;
+}
+
+.p-dialog .p-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Form: grid responsive */
+.p-dialog form {
+  display: grid;
+  gap: 12px;
+}
+
+.p-dialog form>div {
+  display: grid;
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .p-dialog form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Campos */
+.p-dialog form label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  /* gray-500 */
+}
+
+.p-dialog form input[type="text"],
+.p-dialog form input[type="number"] {
+  border: 1px solid #d1d5db;
+  /* gray-300 */
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.p-dialog form input:focus {
+  border-color: #2563eb;
+  /* blue-600 */
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+}

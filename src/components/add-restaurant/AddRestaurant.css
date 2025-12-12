@@ -1,0 +1,53 @@
+/* Contenedor del dialog y layout */
+.add-restaurant-dialog .p-dialog-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.add-restaurant-dialog .p-dialog-content {
+  padding: 16px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Campos */
+.p-field {
+  display: grid;
+  gap: 6px;
+}
+
+.p-field label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.p-field input[type="text"],
+.p-field input[type="number"] {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.p-field input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+}
+
+/* Footer del dialog */
+.add-restaurant-dialog .p-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

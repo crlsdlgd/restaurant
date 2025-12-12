@@ -3,6 +3,7 @@ import { Dialog } from "primereact/dialog";
 import { useState } from "react";
 import type { Restaurant } from "../../types/Restaurant";
 import { RestaurantService } from "../../services/RestaurantService";
+import "./AddRestaurant.css";
 
 const AddRestaurant: React.FC = () => {
   const [showAddRestaurantModal, setShowAddRestaurantModal] =
@@ -12,13 +13,13 @@ const AddRestaurant: React.FC = () => {
   const footerContent = (
     <div>
       <Button
-        label="No"
+        label="Cancel"
         icon="pi pi-times"
         onClick={() => setShowAddRestaurantModal(false)}
         className="p-button-text"
       />
       <Button
-        label="Yes"
+        label="Create"
         icon="pi pi-check"
         onClick={(e) => handleSubmit(e)}
         autoFocus
@@ -42,19 +43,21 @@ const AddRestaurant: React.FC = () => {
     setShowAddRestaurantModal(false);
   };
   return (
-    <div>
+    <div className="add-restaurant flex m-2">
       <Button
-        label="Add Restaurant"
+        icon="pi pi-plus"
         onClick={() => setShowAddRestaurantModal(true)}
       />
 
       <Dialog
-        header="Header"
+        header="Create Restaurant"
         visible={showAddRestaurantModal}
         onHide={() => setShowAddRestaurantModal(false)}
         footer={footerContent}
+        className="add-restaurant-dialog"
       >
         <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="form-grid">
           <div className="p-field">
             <label htmlFor="name">Name</label>
             <input
@@ -129,6 +132,7 @@ const AddRestaurant: React.FC = () => {
                 })
               }
             />
+          </div>
           </div>
         </form>
       </Dialog>
