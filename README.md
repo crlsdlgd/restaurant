@@ -59,6 +59,20 @@ npm run dev
   - `npm run dev` Ejecuta `server.js` con `--watch`
   - `npm start` Ejecuta `server.js`
 
+## Despliegue en local
+  
+  1. Despliegue de proyecto front-end en local, disponible en `http://localhost:5173`
+  ```
+  cd restaurant-front
+  npm install
+  npm run dev
+  ```
+  2. Despliegue de proyecto Back-end en local, disponible en `http://localhost:3000`
+  ```
+  cd restaurant-back
+  npm install
+  npm run dev
+  ```
 ## Despliegue
 - Frontend (estático)
   1. Generar build
@@ -66,8 +80,8 @@ npm run dev
   cd restaurant-front
   npm run build
   ```
-  2. Publicar la carpeta `dist/` en un hosting estático (Netlify, Vercel, GitHub Pages, etc.).
-  3. Configurar variable(s) de entorno/endpoint(s) de API si aplica (por ejemplo, URL del backend).
+  1. Publicar la carpeta `dist/` en un hosting estático (Netlify, Vercel, GitHub Pages, etc.).
+  2. Configurar variable(s) de entorno/endpoint(s) de API si aplica (por ejemplo, URL del backend).
 
 - Backend (Node.js)
   - Opciones: Render, Railway, Fly.io, VPS/VM propia, etc.
