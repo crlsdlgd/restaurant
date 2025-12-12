@@ -3,8 +3,8 @@ import type { RestaurantResponse } from "../types/Restaurant";
 import { RestaurantService } from "../services/RestaurantService";
 import RestaurantFilter from "../components/restaurant-filter/RestaurantFilter";
 import RestaurantTable from "../components/restaurant-table/RestaurantTable";
-//import RestaurantPagination from "../components/restaurant-pagintion/RestaurantPagination";
 import RestaurantPaginator from "../components/restaurant-paginator/RestaurantPaginator";
+import { PrimeReactProvider } from "primereact/api";
 
 const Home: React.FC = () => {
   const [restaurantsResponse, setRestaurantsResponse] =
@@ -34,16 +34,12 @@ const Home: React.FC = () => {
       {restaurantsResponse.restaurants && (
         <RestaurantTable restaurants={restaurantsResponse.restaurants} />
       )}
-      {/* <RestaurantPagination
-        totalPages={restaurantsResponse.totalPages}
-        setPaginationFilter={setPaginationFilter}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      /> */}
-      <RestaurantPaginator
-        totalRestaurants={restaurantsResponse.totalRestaurants}
-        setPaginationFilter={setPaginationFilter}
-      />
+      <PrimeReactProvider>
+        <RestaurantPaginator
+          totalRestaurants={restaurantsResponse.totalRestaurants}
+          setPaginationFilter={setPaginationFilter}
+        />
+      </PrimeReactProvider>
     </div>
   );
 };
